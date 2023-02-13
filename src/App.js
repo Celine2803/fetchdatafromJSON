@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+
 import './App.css';
 
+import Records from'./records.json'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* DISPLAYING JSON DATA IN JAVASCRIPT */}
+     ...webStylePress...
+     <br/><br/>
+     {
+      Records && Records.map(record =>{
+        return(
+          <div className="box" key={record.id}>
+           <strong> {record.title}</strong><br/>
+           {record.content}<br/>
+
+          { record.tech && record.tech.map(data=>{
+            return(
+              <div key={record.id}>
+                ..{data.name}..
+                </div>
+            )
+          })} 
+            </div>
+        )
+      })
+     }
     </div>
   );
 }
